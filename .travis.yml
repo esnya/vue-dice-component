@@ -4,6 +4,9 @@ node_js:
   - lts/*
 script:
   - yarn build
+  - yarn test -- --coverage --coverageReporters lcov
+after_success:
+  - cat ./coverage/lcov.info | coveralls
 before_deploy:
   - NODE_ENV=production yarn build
 deploy:
