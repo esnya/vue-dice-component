@@ -1,0 +1,61 @@
+@import './d6.styl'
+@import './d10.styl'
+
+$size = 60px
+$color = #000000
+$firstColor = #ff0000
+$backgroundColor = #ffffff
+$frameColor = #000000
+
+.dice
+  position relative
+
+  width $size
+  height $size
+
+  user-select none
+
+  transform-style preserve-3d
+  // perspective 100px
+  backface-visibility hidden
+  transform-origin 50% 50%
+
+  .dice-face
+    position absolute
+
+    width $size
+    height $size
+
+    display flex
+    align-items center
+    justify-content center
+
+    transform-origin 50% 50%
+
+    .dice-surface
+      fill $backgroundColor
+      stroke $frameColor
+      stroke-width 1px
+
+    .dice-number
+      fill $color
+      stroke none
+
+      text-anchor middle
+      dominant-baseline central
+
+      font-size ($size * 0.4)
+
+    &:first-child
+      .dice-number
+        fill $firstColor
+
+    &:nth-child(6)
+    &:nth-child(9)
+      .dice-number
+        text-decoration underline
+
+  &.d6
+    mixin-d6($size)
+  &.d10
+    mixin-d10($size)

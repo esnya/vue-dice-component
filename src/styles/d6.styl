@@ -1,0 +1,36 @@
+
+
+mixin-d6($size)
+  d6-front()
+      transform translateZ($size / 2)
+  d6-rx($angle)
+      transform rotateX($angle) translateZ($size / 2)
+  d6-ry($angle)
+      transform rotateY($angle) translateZ($size / 2)
+
+  .dice-face
+    &:nth-child(1)
+      d6-front()
+    &:nth-child(2)
+      d6-ry(90deg)
+    &:nth-child(3)
+      d6-rx(-90deg)
+    &:nth-child(4)
+      d6-rx(90deg)
+    &:nth-child(5)
+      d6-ry(-90deg)
+    &:nth-child(6)
+      d6-ry(180deg)
+
+  &.a1
+    transform none
+  &.a2
+    transform rotateY(-90deg)
+  &.a3
+    transform rotateX(90deg)
+  &.a4
+    transform rotateX(-90deg)
+  &.a5
+    transform rotateY(90deg)
+  &.a6
+    transform rotateY(180deg)

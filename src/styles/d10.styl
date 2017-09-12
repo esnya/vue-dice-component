@@ -1,0 +1,51 @@
+
+
+mixin-d10($size)
+  .dice-face
+    height $size * 1.4142135623730951 * 0.5
+    transform-origin 50% 100%
+
+    polygon
+      transform translateX($size / 2)
+
+    &:nth-child(1)
+      transform translateY($size * -0.25) translateZ($size / 2) rotateX(45deg)
+    &:nth-child(3)
+      transform translateY($size * -0.25) rotateY(72deg) translateZ($size / 2) rotateX(45deg)
+    &:nth-child(5)
+      transform translateY($size * -0.25) rotateY(72deg * 2) translateZ($size / 2) rotateX(45deg)
+    &:nth-child(7)
+      transform translateY($size * -0.25) rotateY(72deg * 3) translateZ($size / 2) rotateX(45deg)
+    &:nth-child(9)
+      transform translateY($size * -0.25) rotateY(72deg * 4) translateZ($size / 2) rotateX(45deg)
+    &:nth-child(2)
+      transform translateY($size * -0.25) rotateZ(180deg) translateZ($size / 2) rotateX(45deg)
+    &:nth-child(4)
+      transform translateY($size * -0.25) rotateZ(180deg) rotateY(72deg) translateZ($size / 2) rotateX(45deg)
+    &:nth-child(6)
+      transform translateY($size * -0.25) rotateZ(180deg) rotateY(72deg * 2) translateZ($size / 2) rotateX(45deg)
+    &:nth-child(8)
+      transform translateY($size * -0.25) rotateZ(180deg) rotateY(72deg * 3) translateZ($size / 2) rotateX(45deg)
+    &:nth-child(10)
+      transform translateY($size * -0.25) rotateZ(180deg) rotateY(72deg * 4) translateZ($size / 2) rotateX(45deg)
+  
+  &.a1
+    transform none
+  &.a2
+    transform rotateZ(180deg)
+  &.a3
+    transform rotateY(-72deg)
+  &.a4
+    transform rotateZ(180deg) rotateY(72deg)
+  &.a5
+    transform rotateY(-72deg * 2)
+  &.a6
+    transform rotateZ(180deg) rotateY(72deg * 2)
+  &.a7
+    transform rotateY(-72deg * 3)
+  &.a8
+    transform rotateZ(180deg) rotateY(72deg * 3)
+  &.a9
+    transform rotateY(-72deg * 4)
+  &.a10
+    transform rotateZ(180deg) rotateY(72deg * 4)
