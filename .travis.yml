@@ -8,10 +8,12 @@ script:
 after_success:
   - cat ./coverage/lcov.info | coveralls
 before_deploy:
+  - rm -rf lib
   - NODE_ENV=production yarn build
 deploy:
   provider: npm
   email: dev.ukatama@gmail.com
+  skip_cleanup: true
   on:
     tags: true
     condition: $TRAVIS_NODE_VERSION = lts/*
