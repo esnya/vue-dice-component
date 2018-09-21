@@ -41,6 +41,11 @@ export default {
         exclude: /node_modules/,
         loaders: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.styl$/,
+        exclude: /node_modules/,
+        loaders: ['css-loader', 'stylus-loader'],
+      },
     ],
   },
   plugins: [],
