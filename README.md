@@ -9,8 +9,10 @@ Animable 3D dice component library for Vue.js
 It is rendered by 3D transformation of CSS3.
 
 ## Features
+- D4
 - D6
 - D10
+- D20
 
 ## Screenshots of Sample
 ![D6](https://rawgit.com/ukatama/vue-dice-component/master/docs/img/d6.png)

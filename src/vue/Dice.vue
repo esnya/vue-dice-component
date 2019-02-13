@@ -1,5 +1,19 @@
 <template lang="pug">
-  .dice(:class="classNames")
+  .vue-dice-component-container(v-if="faces === 4")
+    d4(
+      :color="color"
+      :frameColor="frameColor"
+      :backgroundColor="backgroundColor"
+      :face="angle"
+    )
+  .vue-dice-component-container(v-else-if="faces === 20")
+    d20(
+      :color="color"
+      :frameColor="frameColor"
+      :backgroundColor="backgroundColor"
+      :face="angle"
+    )
+  .dice(:class="classNames" v-else)
     dice-face(
       v-for="n in faceNumbers"
       :key="n"
@@ -13,6 +27,8 @@
 </template>
 
 <script>
+import D4 from './D4.vue';
+import D20 from './D20.vue';
 import DiceFace from './DiceFace.vue';
 
 const FaceProp = {
@@ -26,6 +42,8 @@ const FaceProp = {
 
 export default {
   components: {
+    D4,
+    D20,
     DiceFace,
   },
   computed: {
@@ -69,3 +87,13 @@ export default {
   },
 };
 </script>
+
+<style lang="stylus" scoped>
+.vue-dice-component-container
+  position relative
+  width 60px
+  height 60px
+  top 30px
+  left 30px
+  transform-style preserve-3d
+</style>

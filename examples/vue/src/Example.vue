@@ -1,8 +1,10 @@
 <template>
   <div>
     <div>
+      <button @click="faces = 4">D4</button>
       <button @click="faces = 6">D6</button>
       <button @click="faces = 10">D10</button>
+      <button @click="faces = 20">D20</button>
     </div>
     <div>
       <label for="#color">Color</label>
@@ -94,7 +96,7 @@ export default {
   padding: 30px;
   perspective: 500px;
 }
-.container .dice {
+.container :global(*) {
   transition: transform .2s ease-in-out;
 }
 </style>
