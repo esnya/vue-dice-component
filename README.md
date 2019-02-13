@@ -14,9 +14,11 @@ It is rendered by 3D transformation of CSS3.
 - D10
 - D20
 
-## Screenshots of Sample
+## Screenshots
+![D4](https://rawgit.com/ukatama/vue-dice-component/master/docs/img/d4.png)
 ![D6](https://rawgit.com/ukatama/vue-dice-component/master/docs/img/d6.png)
 ![D10](https://rawgit.com/ukatama/vue-dice-component/master/docs/img/d10.png)
+![D20](https://rawgit.com/ukatama/vue-dice-component/master/docs/img/d20.png)
 
 ## License
 MIT License
