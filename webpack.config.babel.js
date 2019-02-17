@@ -58,7 +58,7 @@ export default {
       },
       {
         test: /\.obj$/,
-        loader: './src/loaders/obj-loader',
+        loader: 'obj2html/obj-loader',
         exclude: /node_modules/,
         options: {
           classPrefix: 'vue-dice-component-dice',
