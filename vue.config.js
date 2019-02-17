@@ -28,11 +28,5 @@ module.exports = {
         },
       ],
     },
-    // output: {
-    //   libraryTarget: 'umd',
-    // },
-  },
-  css: {
-    extract: false,
   },
 };
