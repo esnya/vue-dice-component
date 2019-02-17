@@ -57,6 +57,17 @@ export default {
         },
       },
       {
+        test: /\.obj$/,
+        loader: './src/loaders/obj-loader',
+        exclude: /node_modules/,
+        options: {
+          classPrefix: 'vue-dice-component-dice',
+          fontSize: 20,
+          number: true,
+          scale: 40,
+        },
+      },
+      {
         test: /\.js$/,
         loaders: ['babel-loader', 'eslint-loader'],
         exclude: /node_modules/,

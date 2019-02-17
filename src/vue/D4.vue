@@ -1,136 +1,18 @@
-<template>
-  <div :class="classNames" :style="style">
-    <div class="vue-dice-component-dice-face"><svg width="66" height="69"><polygon points="13.09189803073134,0 65.46495033974972,45.354832641023464 0,68.03382310888591"></polygon><text x="32.73247516987486" y="34.016911554442956" text-anchor="middle" dominant-baseline="central">1</text></svg></div><div class="vue-dice-component-dice-face"><svg width="70" height="60"><polygon points="0,59.99997876714932 34.641000000000005,0 69.28200000000001,59.99997876714932"></polygon><text x="34.641000000000005" y="29.99998938357466" text-anchor="middle" dominant-baseline="central">2</text></svg></div><div class="vue-dice-component-dice-face"><svg width="66" height="69"><polygon points="65.46495033974972,68.03382310888591 0,45.354832641023464 52.37305230901838,0"></polygon><text x="32.73247516987486" y="34.016911554442956" text-anchor="middle" dominant-baseline="central">3</text></svg></div><div class="vue-dice-component-dice-face"><svg width="70" height="60"><polygon points="34.641000000000005,0 69.28200000000001,60 0,60"></polygon><text x="34.641000000000005" y="30" text-anchor="middle" dominant-baseline="central">4</text></svg></div>
-  </div>
+<template lang="pug">
+  obj-dice(v-bind="$props" :model="model")
 </template>
 
 <script>
-export default {
-  computed: {
-    classNames() {
-      const { face } = this;
-      if (!face) {
-        return {
-          'vue-dice-component-dice': true,
-        };
-      }
+import * as model from '../../models/d4.obj';
+import ObjDice from './ObjDice.vue';
 
-      return {
-        'vue-dice-component-dice': true,
-        [`vue-dice-component-dice-face${face}`]: true,
-      };
-    },
-    style() {
-      return {
-        fill: this.backgroundColor,
-        stroke: this.frameColor,
-      };
-    },
+export default {
+  components: {
+    ObjDice,
   },
-  methods: {
-    updateTextStyle() {
-      this.$el.querySelectorAll('svg text').forEach((text) => {
-        // eslint-disable-next-line no-param-reassign
-        text.style.fill = this.color;
-        // eslint-disable-next-line no-param-reassign
-        text.style.stroke = 'none';
-      });
-    },
+  computed: {
+    model: () => model,
   },
-  watch: {
-    color() {
-      this.updateTextStyle();
-    },
-  },
-  mounted() {
-    this.updateTextStyle();
-  },
-  props: {
-    face: {
-      type: Number,
-      required: false,
-    },
-    color: {
-      type: String,
-      required: false,
-    },
-    frameColor: {
-      type: String,
-      required: false,
-    },
-    backgroundColor: {
-      type: String,
-      required: false,
-    },
-    firstColor: {
-      type: String,
-      required: false,
-    },
-  },
+  props: ObjDice.DiceProps,
 };
 </script>
-
-<style scoped>
-.vue-dice-component-dice-face svg text {
-  font-size: 20px;
-  transform: translate3d(0, 7.5px, 0);
-}
-
-/* Generated */
-.vue-dice-component-dice {
-  transform-origin: 0 0;
-  position: relative;
-}
-.vue-dice-component-dice, .vue-dice-component-dice * {
-  transform-style: preserve-3d;
-}
-.vue-dice-component-dice-face {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.vue-dice-component-dice-face:nth-child(1) {
-  width: 0;
-  height: 0;
-  transform: matrix3d(-0.3779307188225321, 0.9258338791437069, 0, 0, 0.4364426514778819, 0.17815840261797677, 0.8819168869840099, 0, 0.816508532558748, 0.3333034830395967, -0.47140492620721836, 0, 11.547, 4.714053333333334, -6.666666666666666, 1);
-}
-.vue-dice-component-dice-face:nth-child(1) svg {
-  transform: translate3d(-26.185616123493684px, -37.79621858330312px, 0);
-}
-.vue-dice-component-dice-face1 {
-  transform: matrix3d(-0.3779307188225322, 0.4364426514778819, 0.8165085325587482, 0, 0.9258338791437071, 0.17815840261797677, 0.3333034830395968, 0, 0, 0.8819168869840099, -0.4714049262072184, 0, 0, 0, 0, 1);
-}
-.vue-dice-component-dice-face:nth-child(2) {
-  width: 0;
-  height: 0;
-  transform: matrix3d(-1, 0, 0, 0, 0, -0.9428185124232387, 0.3333065445382536, 0, 0, 0.33330654453825365, 0.9428185124232389, 0, 0, 4.714053333333334, 13.333333333333332, 1);
-}
-.vue-dice-component-dice-face:nth-child(2) svg {
-  transform: translate3d(-34.641000000000005px, -39.999985844766215px, 0);
-}
-.vue-dice-component-dice-face2 {
-  transform: matrix3d(-1, 0, 0, 0, 0, -0.9428185124232391, 0.33330654453825365, 0, 0, 0.3333065445382537, 0.9428185124232389, 0, 0, 0, 0, 1);
-}
-.vue-dice-component-dice-face:nth-child(3) {
-  width: 0;
-  height: 0;
-  transform: matrix3d(-0.3779307188225321, -0.9258338791437069, 0, 0, -0.4364426514778819, 0.17815840261797677, 0.8819168869840099, 0, -0.816508532558748, 0.3333034830395967, -0.47140492620721836, 0, -11.547, 4.714053333333334, -6.666666666666666, 1);
-}
-.vue-dice-component-dice-face:nth-child(3) svg {
-  transform: translate3d(-39.27933421625603px, -37.79621858330312px, 0);
-}
-.vue-dice-component-dice-face3 {
-  transform: matrix3d(-0.3779307188225322, -0.4364426514778819, -0.8165085325587482, 0, -0.9258338791437071, 0.17815840261797677, 0.3333034830395968, 0, 0, 0.8819168869840099, -0.4714049262072184, 0, 0, 0, 0, 1);
-}
-.vue-dice-component-dice-face:nth-child(4) {
-  width: 0;
-  height: 0;
-  transform: matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, -14.14212, 0, 1);
-}
-.vue-dice-component-dice-face:nth-child(4) svg {
-  transform: translate3d(-34.641000000000005px, -40px, 0);
-}
-.vue-dice-component-dice-face4 {
-  transform: matrix3d(1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 1);
-}
-</style>
