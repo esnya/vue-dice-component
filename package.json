@@ -1,6 +1,6 @@
 {
   "name": "vue-dice-component",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Dice UI Component for Vue.js",
   "main": "lib/dice.js",
   "keywords": [
