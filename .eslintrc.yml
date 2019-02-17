@@ -1,9 +1,0 @@
-extends: airbnb
-env:
-  browser: true
-# parser: babel-eslint
-parserOptions:
-  ecmaVersion: 8
-  sourceType: module
-  ecmaFeatures:
-    experimentalObjectRestSpread: true

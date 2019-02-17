@@ -5,9 +5,16 @@
 ![](https://img.shields.io/coveralls/github/ukatama/vue-dice-component.svg?style=flat-square)
 ![](https://img.shields.io/david/ukatama/vue-dice-component.svg?style=flat-square)
 ![](https://img.shields.io/david/dev/ukatama/vue-dice-component.svg?style=flat-square)
+![](https://img.shields.io/david/peer/ukatama/vue-dice-component.svg?style=flat-square)
 
 Animable 3D dice component library for Vue.js
 It is rendered by 3D transformation of CSS3.
+
+## Example
+```
+$ cd example
+$ npm run serve
+```
 
 ## Features
 - D4

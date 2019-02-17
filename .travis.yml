@@ -1,20 +1,17 @@
 language: node_js
 node_js:
-  - node
-  - lts/*
-script:
-  - yarn build
-  - yarn test -- --coverage --coverageReporters lcov
-after_success:
-  - cat ./coverage/lcov.info | coveralls
-before_deploy:
-  - rm -rf lib
-  - NODE_ENV=production yarn build
+- lts/*
+- node
+script: npm run ci:script
+after_success: test $TRAVIS_NODE_VERSION = node && npm run coveralls
+before_deploy: npm run ci:before_deploy
 deploy:
   provider: npm
-  email: dev.ukatama@gmail.com
   skip_cleanup: true
+  email:
+    secure: UkX/iaz8xTrmpbu6HHQrpOYwuUhRT0hRmkbdjDz8byRu6XUYihBEJb3xr7YVIP/lGgIr85uSarLwHCyeNbyIJNBNTdp5FUaBJ0Dcvk239kBIi3tOSETCDOPzYRdND8WMHLo4zsihzj90XoW0p3O7f5OcaOorKuq3w1IdLD7cbasVt2wucVSBEADTWZODsqicaC+Z8oXYHenk6xEs9y+M7mmnslrBlU4BxCYXWZW7plthk3/5CF/PY6tFtGjP0Ki6hLYXC6K85t/q4q1WY91p3WPgnCMCGkFIudEJzu2FaxqJKK0b+EobwxWv8oegSU8XcLCWO5irchV8XUp5oCWVC7LqflNrA4N8yW8wjxKMwE1DEOBG0UoApFspEOFDdB+eUH8+2/3yVF1V0I++rTIO6fSi5B6gpcrDtg+75xfPiumA/V4MxPOYXj59sF6W0g5eP/RU+CKx7vUXmJfoDNn9yxj+UbUJrkmt30dmH850ImE2nXMui4iYBghEPFfcl8uvqxasjrraxpCLsv4AOvmOOLrgsUrLULi87hZLVHVykM1ykuhbzy2EUqjGLtSFfL4d5rc6UpBWOTtPAQ71VWKtHYyj+CIv3PG/sTV87qMFLaQ2EbjUVtO4y5d1hwWLhMFhLcOfUbS8tyGKpISoRaT8bLOQrU25TYfxksCGqE8F9UQ=
   on:
     tags: true
-    condition: $TRAVIS_NODE_VERSION = lts/*
-  api_key: $NPM_AUTH_TOKEN
+    condition: "$TRAVIS_NODE_VERSION = lts/*"
+  api_key:
+    secure: dxxHzs1sCnyVPlGPdi57YC7vyUd5PX1jjO/qTs1j6fcd5hrM+nx6FK5miOXYOOiNEBjhT4Fcg2ZOiJYLbKQDyFyjpVF4/PsLArTf2i4CHtcTKFzcU1+AXAApjdDcTQwk4fnro4JaYbEFFEmvljOUDE1aaxqwuiq9H09BDRJFGSwZLKI8jDonXN65h2KDZydcPDtINGQeAK9pJ2sXEhg3vAqQ3KcbDXH9eUZvtEJSCh8T/vEOmWVy/QEhyGA98m1n2fPaSTkmkSfCYVV3f1GZtznDLenfQnF80bOJSLIbByYcEjSmwKteGdiaDpeDvWZwLXbxXWq0L3CAgmI21LTp/4svruY0U1xkzBVgn+qV2/fWjOjplQ9KIoeUk1UhUXTEs5gZf8WqKYF1KVJmSu/aJFaoB0vgad85N7fPWJ1aZSpjj4zbR94AtNT7cZSdKR73LKcBSwIiD90olgdRhcdbMpFnzHGgogicwHFGVVZTWA6UncK1jqEA8P2PE0Vk5ZAekokspBnBnl2yAxGf7knjwG8XsMjhZVExTQpQlJMeC9Rc0MTxbHluYYWNYN2IebyRmpzp1gHehzdvYk2NU7KsQ8uz1ZWUo93/0MKM6P8BNQ7+oZIy3kMcB4POpKf+jOAdb76RI7d0rDtwfF7JcOMLM74+0GVlTB0vl1O0yZn1u+k=

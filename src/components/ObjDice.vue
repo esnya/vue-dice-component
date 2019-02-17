@@ -50,7 +50,7 @@ export default {
       this.updateTextStyle();
     },
     face(face, prev) {
-      const classPrefix = this.model.classPrefix;
+      const { classPrefix } = this.model;
       const el = this.$el.querySelector(`.${classPrefix}`);
       if (!el) return;
 
