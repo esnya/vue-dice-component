@@ -44,12 +44,8 @@ export default {
         text.style.stroke = 'none';
       });
     },
-  },
-  watch: {
-    color() {
-      this.updateTextStyle();
-    },
-    face(face, prev) {
+    updateFace(prev) {
+      const { face } = this;
       const { classPrefix } = this.model;
       const el = this.$el.querySelector(`.${classPrefix}`);
       if (!el) return;
@@ -58,12 +54,21 @@ export default {
       if (face) el.classList.add(`${classPrefix}-face${face}`);
     },
   },
+  watch: {
+    color() {
+      this.updateTextStyle();
+    },
+    face(face, prev) {
+      this.updateFace(prev);
+    },
+  },
   mounted() {
     const styleElement = document.createElement('style');
     styleElement.type = 'text/css';
     document.head.appendChild(styleElement);
     styleElement.outerHTML = this.model.style;
     this.updateTextStyle();
+    this.updateFace(null);
   },
   DiceProps,
   props: {
