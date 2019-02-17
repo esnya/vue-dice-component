@@ -30,6 +30,7 @@
 import D4 from './D4.vue';
 import D20 from './D20.vue';
 import DiceFace from './DiceFace.vue';
+import '../styles/dice.styl';
 
 const FaceProp = {
   type: Number,
